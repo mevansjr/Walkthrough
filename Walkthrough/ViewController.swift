@@ -22,41 +22,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func fanamana() {
-        let images = [UIImage(named: "Fanamana-Screen-01"), UIImage(named: "2b"), UIImage(named: "3b"), UIImage(named: "4b"), UIImage(named: "5b")]
-        let titles = ["Title One", "Title Two", "Title Three", "Title Four", "Title Five"]
+        let images = [UIImage(named: "1f"), UIImage(named: "2fw"), UIImage(named: "3f"), UIImage(named: "4fw"), UIImage(named: "5f")] // alt
+        let titles = ["Join one of our free or pay-to-enter Contests, or if MLB hasn’t started yet today, play a Practice game.", "On joining a contest, the boxscore is linked to the full leaderboard. Your game starts when you make your first pick.", "Draft from the current slate of on-deck batters. These are players preparing to bat in live MLB games.", "When a player is at-bat in the real game, his outcome will apply to your virtual game. We go by runs and outs, just like baseball.", "Good luck and enjoy playing InGame Fantasy. Remember when a friend you refer makes a deposit, you’ll get paid too!"]
         
-        let walkthroughController = MBEWalkthroughController(walkthroughType: MBEWalkthroughController.WalkthroughType.Fanamana, showStatus: false, statusOption: MBEWalkthroughController.WalkthroughStatusBarType.Light, primaryColor: UIColor.CustomBackgroundOffBlackColor(), secondaryColor: UIColor.CustomGreenColor(), images: images, titles: titles)
-        
-        self.presentViewController(walkthroughController, animated: true, completion: nil)
-    }
-    
-    @IBAction func fullscreen() {
-        let images = [UIImage(named: "1"), UIImage(named: "2"), UIImage(named: "3"), UIImage(named: "4"), UIImage(named: "5")]
-        
-        let walkthroughController = MBEWalkthroughController(walkthroughType: MBEWalkthroughController.WalkthroughType.FullScreenShot, showStatus: false, statusOption: MBEWalkthroughController.WalkthroughStatusBarType.Light, primaryColor: UIColor.clearColor(), secondaryColor: UIColor.darkGrayColor(), images: images)
+        let walkthroughController = MBEWalkthroughController(walkthroughType: MBEWalkthroughController.WalkthroughType.Fanamana, showStatus: false, statusOption: MBEWalkthroughController.WalkthroughStatusBarType.Light, primaryColor: UIColor.blackColor(), secondaryColor: UIColor.greenColor(), images: images, titles: titles)
         
         self.presentViewController(walkthroughController, animated: true, completion: nil)
     }
-    
-    @IBAction func background() {
-        let imagesAlt = [UIImage(named: "1a"), UIImage(named: "2a"), UIImage(named: "3a"), UIImage(named: "4a"), UIImage(named: "5a")]
-        let titles = ["Title One", "Title Two", "Title Three", "Title Four", "Title Five"]
-        let descs = ["Description One", "Description Two", "Description Three", "Description Four", "Description Five"]
-        
-        let walkthroughController = MBEWalkthroughController(walkthroughType: MBEWalkthroughController.WalkthroughType.BackgroundImage, showStatus: false, statusOption: MBEWalkthroughController.WalkthroughStatusBarType.Light, primaryColor: UIColor.lightGrayColor(), secondaryColor: UIColor.darkGrayColor(), images: imagesAlt, titles: titles, descriptions: descs)
-        
-        self.presentViewController(walkthroughController, animated: true, completion: nil)
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

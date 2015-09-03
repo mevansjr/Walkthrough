@@ -13,23 +13,20 @@ class MBEWalkthroughController: UIViewController, UICollectionViewDelegate, UICo
     // MARK: Variables
     
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var descBackground: UIView!
-    @IBOutlet weak var descAltBackground: UIView!
     @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var pageControlAlt: UIPageControl!
+    @IBOutlet weak var finish: UIButton!
     @IBOutlet weak var skip: UIButton!
-    @IBOutlet weak var done: UIButton!
-    @IBOutlet weak var arrow: UIImageView!
+    @IBOutlet weak var contentBackground: UIButton!
+    @IBOutlet weak var content: UILabel!
     
-    var primaryColor = UIColor.greenColor()
-    var secondaryColor = UIColor.redColor()
+    var primaryColor = UIColor.whiteColor()
+    var secondaryColor = UIColor.whiteColor()
     var images = [UIImage?]()
     var titles = [String]()
     var descriptions = [String]()
-    var isFullScreen: Bool = false
     var showStatusBar: Bool = false
     var isFanamana: Bool = false
-    var statusBarOption: WalkthroughStatusBarType = WalkthroughStatusBarType.Dark
+    var statusBarOption: WalkthroughStatusBarType = WalkthroughStatusBarType.Light
     var statusBarStyle: UIStatusBarStyle?
     var statusBarHidden: Bool?
     
@@ -57,43 +54,6 @@ class MBEWalkthroughController: UIViewController, UICollectionViewDelegate, UICo
     
     // MARK: Init Methods
     
-    init(walkthroughType: WalkthroughType, showStatus: Bool, statusOption: WalkthroughStatusBarType) {
-        super.init(nibName: "MBEWalkthroughController", bundle: nil)
-        self.showStatusBar = showStatus
-        self.statusBarOption = statusOption
-        self.setupView(walkthroughType)
-    }
-    
-    init(walkthroughType: WalkthroughType, showStatus: Bool, statusOption: WalkthroughStatusBarType, primaryColor: UIColor?, secondaryColor: UIColor?) {
-        super.init(nibName: "MBEWalkthroughController", bundle: nil)
-        if primaryColor != nil {
-            self.primaryColor = primaryColor!
-        }
-        if secondaryColor != nil {
-            self.secondaryColor = secondaryColor!
-        }
-        self.showStatusBar = showStatus
-        self.statusBarOption = statusOption
-        self.setupView(walkthroughType)
-    }
-    
-    init(walkthroughType: WalkthroughType, showStatus: Bool, statusOption: WalkthroughStatusBarType, primaryColor: UIColor?, secondaryColor: UIColor?, images: [UIImage?]?) {
-        super.init(nibName: "MBEWalkthroughController", bundle: nil)
-        if primaryColor != nil {
-            self.primaryColor = primaryColor!
-        }
-        if secondaryColor != nil {
-            self.secondaryColor = secondaryColor!
-        }
-        if images != nil {
-            self.images.removeAll(keepCapacity: false)
-            self.images = images!
-        }
-        self.showStatusBar = showStatus
-        self.statusBarOption = statusOption
-        self.setupView(walkthroughType)
-    }
-    
     init(walkthroughType: WalkthroughType, showStatus: Bool, statusOption: WalkthroughStatusBarType, primaryColor: UIColor?, secondaryColor: UIColor?, images: [UIImage?]?, titles: [String]?) {
         super.init(nibName: "MBEWalkthroughController", bundle: nil)
         if primaryColor != nil {
@@ -109,31 +69,6 @@ class MBEWalkthroughController: UIViewController, UICollectionViewDelegate, UICo
         if titles != nil {
             self.titles.removeAll(keepCapacity: false)
             self.titles = titles!
-        }
-        self.showStatusBar = showStatus
-        self.statusBarOption = statusOption
-        self.setupView(walkthroughType)
-    }
-    
-    init(walkthroughType: WalkthroughType, showStatus: Bool, statusOption: WalkthroughStatusBarType, primaryColor: UIColor?, secondaryColor: UIColor?, images: [UIImage?]?, titles: [String]?, descriptions: [String]?) {
-        super.init(nibName: "MBEWalkthroughController", bundle: nil)
-        if primaryColor != nil {
-            self.primaryColor = primaryColor!
-        }
-        if secondaryColor != nil {
-            self.secondaryColor = secondaryColor!
-        }
-        if images != nil {
-            self.images.removeAll(keepCapacity: false)
-            self.images = images!
-        }
-        if titles != nil {
-            self.titles.removeAll(keepCapacity: false)
-            self.titles = titles!
-        }
-        if descriptions != nil {
-            self.descriptions.removeAll(keepCapacity: false)
-            self.descriptions = descriptions!
         }
         self.showStatusBar = showStatus
         self.statusBarOption = statusOption
@@ -176,29 +111,19 @@ class MBEWalkthroughController: UIViewController, UICollectionViewDelegate, UICo
 
     func setupView(walkThroughType: WalkthroughType) {
         self.view.backgroundColor = self.primaryColor
-        self.descBackground.backgroundColor = self.secondaryColor
-        self.descAltBackground.backgroundColor = self.secondaryColor
-        self.done.backgroundColor = self.secondaryColor
-        self.descBackground.hidden = true
+        finish.enabled = false
         
         switch walkThroughType.rawValue {
         case WalkthroughType.Fanamana.rawValue:
             self.isFanamana = true
-            self.pageControl.hidden = true
-            self.pageControlAlt.hidden = false
-            self.descAltBackground.hidden = true
-            self.descBackground.hidden = true
-            self.skip.hidden = true
-            self.done.hidden = false
-            self.arrow.hidden = false
-        case WalkthroughType.BackgroundImage.rawValue:
-            print("BackgroundImage");
-            self.descAltBackground.hidden = false
-            self.isFullScreen = false
-        case WalkthroughType.FullScreenShot.rawValue:
-            print("FullScreenShot");
-            self.descAltBackground.hidden = false
-            self.isFullScreen = true
+            self.pageControl.hidden = false
+            self.finish.hidden = false
+            self.contentBackground.hidden = false
+            self.content.hidden = false
+            
+            if self.titles.count > 0 {
+                self.content.text = self.titles[0]
+            }
         default:
             print("Not init w/ WalkthroughType");
         }
@@ -206,12 +131,9 @@ class MBEWalkthroughController: UIViewController, UICollectionViewDelegate, UICo
         if self.images.count > 0 {
             self.pageControl.numberOfPages = self.images.count
             self.pageControl.currentPage = 0
-            self.pageControlAlt.numberOfPages = self.images.count
-            self.pageControlAlt.currentPage = 0
         }
         else {
             self.pageControl.hidden = true
-            self.pageControlAlt.hidden = true
         }
         
         var nib = UINib(nibName: "MBEWalkthroughCell", bundle: nil)
@@ -220,31 +142,44 @@ class MBEWalkthroughController: UIViewController, UICollectionViewDelegate, UICo
         self.collectionView!.reloadData()
     }
     
-    func adjustButton() {
+    func adjustFinishButton() {
+        skip.hidden = false
         if !self.pageControl.hidden {
             if self.images.count > 0 {
                 if self.pageControl.currentPage+1 == self.images.count {
-                    skip.setTitle("Done", forState: UIControlState.Normal)
-                    skip.setTitle("Done", forState: UIControlState.Highlighted)
-                    skip.setTitle("Done", forState: UIControlState.Selected)
+                    finish.setTitle("Let Me In".uppercaseString, forState: UIControlState.Normal)
+                    finish.setTitle("Let Me In".uppercaseString, forState: UIControlState.Highlighted)
+                    finish.setTitle("Let Me In".uppercaseString, forState: UIControlState.Selected)
+                    finish.enabled = true
+                    skip.hidden = true
                 }
                 else {
-                    skip.setTitle("Skip", forState: UIControlState.Normal)
-                    skip.setTitle("Skip", forState: UIControlState.Highlighted)
-                    skip.setTitle("Skip", forState: UIControlState.Selected)
+                    finish.setTitle("".uppercaseString, forState: UIControlState.Normal)
+                    finish.setTitle("".uppercaseString, forState: UIControlState.Highlighted)
+                    finish.setTitle("".uppercaseString, forState: UIControlState.Selected)
+                    finish.enabled = false
                 }
             }
             else {
-                skip.setTitle("Skip", forState: UIControlState.Normal)
-                skip.setTitle("Skip", forState: UIControlState.Highlighted)
-                skip.setTitle("Skip", forState: UIControlState.Selected)
+                finish.setTitle("".uppercaseString, forState: UIControlState.Normal)
+                finish.setTitle("".uppercaseString, forState: UIControlState.Highlighted)
+                finish.setTitle("".uppercaseString, forState: UIControlState.Selected)
+                finish.enabled = false
             }
         }
         else {
-            skip.setTitle("Skip", forState: UIControlState.Normal)
-            skip.setTitle("Skip", forState: UIControlState.Highlighted)
-            skip.setTitle("Skip", forState: UIControlState.Selected)
+            finish.setTitle("".uppercaseString, forState: UIControlState.Normal)
+            finish.setTitle("".uppercaseString, forState: UIControlState.Highlighted)
+            finish.setTitle("".uppercaseString, forState: UIControlState.Selected)
+            finish.enabled = false
         }
+    }
+    
+    func adjustSkipButton() {
+        skip.setTitle("Skip".uppercaseString, forState: UIControlState.Normal)
+        skip.setTitle("Skip".uppercaseString, forState: UIControlState.Highlighted)
+        skip.setTitle("Skip".uppercaseString, forState: UIControlState.Selected)
+        skip.enabled = true
     }
     
     // MARK: CollectionView Methods
@@ -260,26 +195,7 @@ class MBEWalkthroughController: UIViewController, UICollectionViewDelegate, UICo
         if let cell : MBEWalkthroughCell = collectionView.dequeueReusableCellWithReuseIdentifier("MBEWalkthroughCell", forIndexPath: indexPath) as? MBEWalkthroughCell {
             if self.isFanamana {
                 if self.images.count > 0 && self.titles.count > 0 {
-                    cell.setupAltCell(self.images[indexPath.row], title: self.titles[indexPath.row])
-                }
-            }
-            else if self.isFullScreen {
-                if self.images.count > 0 {
-                    cell.setupFullScreenCell(self.images[indexPath.row])
-                }
-            }
-            else {
-                if self.images.count > 0 && self.titles.count > 0 && self.descriptions.count > 0 {
-                    cell.setupBackgroundCell(self.images[indexPath.row], title: self.titles[indexPath.row], desc: self.descriptions[indexPath.row])
-                }
-                else if self.images.count > 0 && self.titles.count == 0 && self.descriptions.count > 0 {
-                    cell.setupBackgroundCell(self.images[indexPath.row], title: nil, desc: self.descriptions[indexPath.row])
-                }
-                else if self.images.count > 0 && self.titles.count > 0 && self.descriptions.count == 0 {
-                    cell.setupBackgroundCell(self.images[indexPath.row], title: self.titles[indexPath.row], desc: nil)
-                }
-                else if self.images.count > 0 {
-                    cell.setupBackgroundCell(self.images[indexPath.row], title: nil, desc: nil)
+                    cell.setupCell(self.images[indexPath.row], title: self.titles[indexPath.row])
                 }
             }
             return cell
@@ -303,9 +219,15 @@ class MBEWalkthroughController: UIViewController, UICollectionViewDelegate, UICo
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let pageWidth = self.collectionView.bounds.size.width
-        self.pageControl.currentPage = Int((self.collectionView.contentOffset.x + CGFloat(pageWidth) / 2) / CGFloat(pageWidth))
-        self.pageControlAlt.currentPage = Int((self.collectionView.contentOffset.x + CGFloat(pageWidth) / 2) / CGFloat(pageWidth))
-        self.adjustButton()
+        let index = Int((self.collectionView.contentOffset.x + CGFloat(pageWidth) / 2) / CGFloat(pageWidth))
+        self.pageControl.currentPage = index
+        if self.isFanamana {
+            if self.titles.count > 0 {
+                self.content.text = self.titles[index]
+            }
+        }
+        self.adjustSkipButton()
+        self.adjustFinishButton()
     }
     
     // MARK: Enums
@@ -316,8 +238,6 @@ class MBEWalkthroughController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     enum WalkthroughType: Int {
-        case Fanamana = 2
-        case BackgroundImage = 1
-        case FullScreenShot = 0
+        case Fanamana = 0
     }
 }

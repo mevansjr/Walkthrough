@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,121 +13,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eWc-Sd-1BM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="-25" width="320" height="480"/>
                     </imageView>
-                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Pz-xM-Meo" customClass="UIImageViewAligned">
-                        <rect key="frame" x="30" y="130" width="261" height="306"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="5Pz-xM-Meo" secondAttribute="height" multiplier="227:289" id="KgE-0T-WMI"/>
-                            <constraint firstAttribute="height" constant="306" id="QY9-5f-shl"/>
-                            <constraint firstAttribute="width" constant="261" id="dMY-Zn-jda"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="KgE-0T-WMI"/>
-                            </mask>
-                        </variation>
-                    </imageView>
-                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="overlay.png" translatesAutoresizingMaskIntoConstraints="NO" id="MJM-pf-Dtk">
-                        <rect key="frame" x="-21" y="-60" width="363" height="495"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="MJM-pf-Dtk" secondAttribute="height" multiplier="40:71" id="7yB-c3-xaz"/>
-                            <constraint firstAttribute="width" constant="363" id="I4U-5J-3P7"/>
-                            <constraint firstAttribute="height" constant="495" id="xYV-JK-Wof"/>
-                            <constraint firstAttribute="width" secondItem="MJM-pf-Dtk" secondAttribute="height" multiplier="2:3" constant="-10" id="y1w-V5-LsU"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="7yB-c3-xaz"/>
-                                <exclude reference="y1w-V5-LsU"/>
-                            </mask>
-                        </variation>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8pS-Je-QNT">
-                        <rect key="frame" x="8" y="16" width="304" height="42"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="42" id="ldc-lT-eDt"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="any-He-K6M">
-                        <rect key="frame" x="8" y="54" width="304" height="80"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="80" id="Miy-0O-iuz"/>
-                            <constraint firstAttribute="width" constant="304" id="Tnj-eB-OcI"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEV-jg-qep">
-                        <rect key="frame" x="8" y="64" width="304" height="155"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="155" id="By3-vj-Y1s"/>
-                            <constraint firstAttribute="width" constant="304" id="yIM-1J-mIi"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
                 <constraint firstItem="eWc-Sd-1BM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="23S-Rz-A06"/>
-                <constraint firstAttribute="bottom" secondItem="5Pz-xM-Meo" secondAttribute="bottom" constant="44" id="9wX-AD-51A"/>
-                <constraint firstItem="DEV-jg-qep" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Fbd-6a-ErB"/>
-                <constraint firstItem="8pS-Je-QNT" firstAttribute="centerX" secondItem="any-He-K6M" secondAttribute="centerX" id="GpU-gp-kbe"/>
-                <constraint firstAttribute="trailing" secondItem="MJM-pf-Dtk" secondAttribute="trailing" id="IJR-ac-VDC"/>
-                <constraint firstItem="eWc-Sd-1BM" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="J9P-S7-Hyj"/>
-                <constraint firstItem="8pS-Je-QNT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="JsR-n6-Hp4"/>
-                <constraint firstAttribute="bottom" secondItem="MJM-pf-Dtk" secondAttribute="bottom" id="KZc-pP-Xtq"/>
-                <constraint firstAttribute="trailing" secondItem="8pS-Je-QNT" secondAttribute="trailing" constant="8" id="N90-bT-QrD"/>
-                <constraint firstAttribute="trailing" secondItem="any-He-K6M" secondAttribute="trailing" constant="8" id="Pqb-0S-xh5"/>
+                <constraint firstItem="eWc-Sd-1BM" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="-25" id="J9P-S7-Hyj"/>
                 <constraint firstAttribute="trailing" secondItem="eWc-Sd-1BM" secondAttribute="trailing" id="QEn-Fp-nx7"/>
-                <constraint firstItem="MJM-pf-Dtk" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="THr-T1-LNr"/>
-                <constraint firstItem="5Pz-xM-Meo" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="47" id="Uec-ht-aTS"/>
-                <constraint firstItem="any-He-K6M" firstAttribute="top" secondItem="8pS-Je-QNT" secondAttribute="bottom" constant="-4" id="YUs-wV-nJ1"/>
-                <constraint firstItem="any-He-K6M" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="aAk-TK-pWu"/>
-                <constraint firstAttribute="centerX" secondItem="MJM-pf-Dtk" secondAttribute="centerX" id="bHn-1m-gw4"/>
-                <constraint firstItem="8pS-Je-QNT" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="cTr-wI-Tmj"/>
-                <constraint firstItem="DEV-jg-qep" firstAttribute="top" secondItem="8pS-Je-QNT" secondAttribute="bottom" constant="6" id="coI-KR-YTq"/>
-                <constraint firstAttribute="bottom" secondItem="eWc-Sd-1BM" secondAttribute="bottom" id="hmc-lm-ejd"/>
-                <constraint firstItem="MJM-pf-Dtk" firstAttribute="width" secondItem="MJM-pf-Dtk" secondAttribute="height" multiplier="40:71" id="hyB-sA-TQV"/>
-                <constraint firstAttribute="bottom" secondItem="MJM-pf-Dtk" secondAttribute="bottom" constant="45" id="kWh-AK-E8V"/>
-                <constraint firstAttribute="trailing" secondItem="DEV-jg-qep" secondAttribute="trailing" constant="8" id="l3S-8g-lPd"/>
-                <constraint firstAttribute="centerX" secondItem="5Pz-xM-Meo" secondAttribute="centerX" constant="-0.5" id="t04-5K-v6o"/>
-                <constraint firstItem="DEV-jg-qep" firstAttribute="centerX" secondItem="8pS-Je-QNT" secondAttribute="centerX" id="x9j-zq-cWs"/>
-                <constraint firstAttribute="trailing" secondItem="5Pz-xM-Meo" secondAttribute="trailing" constant="46" id="yeF-FZ-80w"/>
+                <constraint firstAttribute="bottom" secondItem="eWc-Sd-1BM" secondAttribute="bottom" constant="25" id="hmc-lm-ejd"/>
             </constraints>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="Fbd-6a-ErB"/>
-                    <exclude reference="l3S-8g-lPd"/>
-                    <exclude reference="Pqb-0S-xh5"/>
-                    <exclude reference="aAk-TK-pWu"/>
-                    <exclude reference="IJR-ac-VDC"/>
-                    <exclude reference="KZc-pP-Xtq"/>
-                    <exclude reference="THr-T1-LNr"/>
-                    <exclude reference="hyB-sA-TQV"/>
-                    <exclude reference="Uec-ht-aTS"/>
-                    <exclude reference="yeF-FZ-80w"/>
-                </mask>
-            </variation>
             <connections>
-                <outlet property="descr" destination="any-He-K6M" id="WVs-ZE-b6V"/>
-                <outlet property="extendDesc" destination="DEV-jg-qep" id="jJT-ol-4uk"/>
-                <outlet property="overlay" destination="MJM-pf-Dtk" id="vJc-0n-syO"/>
-                <outlet property="overlayScreenImageView" destination="5Pz-xM-Meo" id="E5P-2k-wdq"/>
                 <outlet property="screenImageView" destination="eWc-Sd-1BM" id="mBk-jW-5rr"/>
-                <outlet property="title" destination="8pS-Je-QNT" id="WC8-kt-etY"/>
             </connections>
             <point key="canvasLocation" x="244" y="-61"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="overlay.png" width="1242" height="2208"/>
-    </resources>
 </document>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F7104426-2AFD-454A-8F98-7EB411B35CEA</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Walkthrough</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>AF76174823762E572EA16A0509CB8D5FA6CEB43E</key>
+		<string>https://github.com/mevansjr/Walkthrough.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Walkthrough.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>AF76174823762E572EA16A0509CB8D5FA6CEB43E</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/mevansjr/Walkthrough.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AF76174823762E572EA16A0509CB8D5FA6CEB43E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AF76174823762E572EA16A0509CB8D5FA6CEB43E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Walkthrough</string>
+		</dict>
+	</array>
+</dict>
+</plist>
